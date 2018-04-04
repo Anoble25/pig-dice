@@ -4,10 +4,19 @@ var turnKeeper=1;
 
 var player1=new Player("Falcor", 0);
 var player2=new Player("Nola", 0);
+var dice=new Dice(6);
 
 function Player (name, bank){
   this.name=name;
   this.bank=bank;
+}
+
+function Dice(max){
+  this.max=max;
+}
+
+Dice.prototype.roll=function(){
+  return Math.ceil(Math.random()*6);
 }
 
 function newGame(){
@@ -23,21 +32,6 @@ function newGame(){
   $("#player1Notice").show();
   $("#player2Notice").hide();
 }
-function roll(){
-  return Math.ceil(Math.random()*6);
-}
-
-// function testRandom()
-// {
-//   var arr = [0,0,0,0,0,0];
-//   for (var i = 0; i < 1000; i++) {
-//     var result = roll();
-//     arr[result-1] += 1;
-//   }
-//   return arr;
-// }
-
-//console.log(testRandom());
 
 function updateTurnTotal(){
   var tempTotal=0;
@@ -71,7 +65,7 @@ function checkWin(){
 $(document).ready(function() {
   $("#rollButton").click(function(){
     event.preventDefault();
-    var temp=roll();
+    var temp=dice.roll();
     $("#rollList").text("Last Roll: " + temp);
 
     if (parseInt(temp)===1){

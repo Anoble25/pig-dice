@@ -2,7 +2,11 @@
   display:none;
 }
 
-#winDisplay{
+#results{
+  display:none;
+}
+
+#winReset{
   display:none;
 }
 
@@ -28,6 +32,11 @@ body{
   background-color: #808F85;
 }
 #newGame{
+  text: #DCE0D9;
+  background-color: #EA9010;
+}
+
+#winReset{
   text: #DCE0D9;
   background-color: #EA9010;
 }

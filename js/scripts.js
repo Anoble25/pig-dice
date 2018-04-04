@@ -1,8 +1,14 @@
 var turnScores=[];
-var player1bank=0;
-var player2bank=0;
 var turnTotal;
 var turnKeeper=1;
+
+var player1=new Player("Falcor", 0);
+var player2=new Player("Nola", 0);
+
+function Player (name, bank){
+  this.name=name;
+  this.bank=bank;
+}
 
 function newGame(){
   $("#player2ScoreCard").text("0");
@@ -10,8 +16,8 @@ function newGame(){
   turnTotal=0;
   temp=0;
   turnScores=[];
-  player1bank=0;
-  player2bank=0;
+  player1.bank=0;
+  player2.bank=0;
   $("#rollTotal").text("0");
   $("#rollList").text("");
   $("#player1Notice").show();
@@ -21,17 +27,17 @@ function roll(){
   return Math.ceil(Math.random()*6);
 }
 
-function testRandom()
-{
-  var arr = [0,0,0,0,0,0];
-  for (var i = 0; i < 1000; i++) {
-    var result = roll();
-    arr[result-1] += 1;
-  }
-  return arr;
-}
+// function testRandom()
+// {
+//   var arr = [0,0,0,0,0,0];
+//   for (var i = 0; i < 1000; i++) {
+//     var result = roll();
+//     arr[result-1] += 1;
+//   }
+//   return arr;
+// }
 
-console.log(testRandom());
+//console.log(testRandom());
 
 function updateTurnTotal(){
   var tempTotal=0;
@@ -53,10 +59,10 @@ function turnEnd(){
 }
 
 function checkWin(){
-  if (turnKeeper%2==0&&player2bank+turnTotal>=100){
+  if (turnKeeper%2==0&&player2.bank+turnTotal>=100){
     alert("player 2 wins");
   }
-  else if (turnKeeper%2==1&&player1bank+turnTotal>=100){
+  else if (turnKeeper%2==1&&player1.bank+turnTotal>=100){
     alert("player 1 wins");
   }
   else{}
@@ -84,12 +90,12 @@ $(document).ready(function() {
   $("#holdButton").click(function(){
     event.preventDefault();
     if (turnKeeper%2==0){
-      player2bank=player2bank+turnTotal;
-      $("#player2ScoreCard").text(player2bank);
+      player2.bank=player2.bank+turnTotal;
+      $("#player2ScoreCard").text(player2.bank);
     }
     else{
-      player1bank=player1bank+turnTotal;
-      $("#player1ScoreCard").text(player1bank);
+      player1.bank=player1.bank+turnTotal;
+      $("#player1ScoreCard").text(player1.bank);
     }
     turnEnd();
   });

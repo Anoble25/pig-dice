@@ -2,6 +2,10 @@
   display:none;
 }
 
+#winDisplay{
+  display:none;
+}
+
 img{
   width: 30%;
   display:block;

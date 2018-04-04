@@ -52,17 +52,25 @@
                 <h2>Score Board</h2>
               </div>
               <div class="panel-body">
-                <h3>Player 1 Bank</h3>
+                <h3 id="player1BankName">'s Bank</h3>
                 <h2 id="player1ScoreCard"></h2>
-                <h3>Player 2 Bank</h3>
+                <h3 id="player2BankName">'s Bank</h3>
                 <h2 id="player2ScoreCard"></h2>
               </div>
-              <div class="panel-footer">
+            </div>
+
+            <div class="col-md-3 panel">
+              <div class="panel-header">
                 <button id="newGame" class = "btn-xl" name="button">New Game</button>
               </div>
             </div>
           </div>
       </form>
+
+      <center><h1 id="winDisplay"> wins!</h1></center>
+      <center><p id="player1Result"></p></center>
+      <center><p id="player2Result"></p></center>
+
     </div>
   </body>
 </html>

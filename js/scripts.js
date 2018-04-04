@@ -54,10 +54,21 @@ function turnEnd(){
 
 function checkWin(){
   if (turnKeeper%2==0&&player2.bank+turnTotal>=100){
-    alert("player 2 wins");
+
+    $("#playForm").toggle();
+    $("#winDisplay").toggle();
+    $("#winDisplay").prepend(player2.name);
+    $("#player2Result").prepend(player2.name+ "'s final bank: "+player2.bank);
+    $("#player1Result").prepend(player1.name+ "'s final bank: "+player1.bank);
+
   }
   else if (turnKeeper%2==1&&player1.bank+turnTotal>=100){
-    alert("player 1 wins");
+    $("#playForm").toggle();
+    $("#winDisplay").toggle();
+    $("#winDisplay").prepend(player2.name);
+    $("#player1Result").prepend(player1.name+ "'s final bank: "+player1.bank);
+    $("#player2Result").prepend(player2.name+ "'s final bank: "+player2.bank);
+
   }
   else{}
 }
@@ -67,6 +78,8 @@ function startGame(){
   $("#playStart").toggle();
   $("#player1Notice").prepend(player1.name);
   $("#player2Notice").prepend(player2.name);
+  $("#player1BankName").prepend(player1.name);
+  $("#player2BankName").prepend(player2.name);
 }
 
 $(document).ready(function() {

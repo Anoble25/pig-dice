@@ -1,9 +1,14 @@
 var turnScores=[];
-var player1bank;
-var player2bank;
+var player1bank=0;
+var player2bank=0;
 var turnTotal;
 var turnKeeper=1;
 
+
+function newGame(){
+  $("#player2ScoreCard").text("");
+  $("#player1ScoreCard").text("");
+}
 function roll(){
   return Math.floor(Math.random()*6) + 1;
 }
@@ -27,6 +32,15 @@ function turnEnd(){
   turnKeeper++;
 }
 
+function checkWin(){
+  if (turnKeeper%2==0&&player2bank+turnTotal>=100){
+    alert("player 2 wins");
+  }
+  else if (turnKeeper%2==1&&player1bank+turnTotal>=100){
+    alert("player 1 wins");
+  }
+  else{}
+}
 
 $(document).ready(function() {
   $("#rollButton").click(function(){
@@ -40,20 +54,20 @@ $(document).ready(function() {
     }
 
     else{
-      console.log(temp);
       turnScores.push(temp);
       turnTotal=updateTurnTotal();
       $("#rollTotal").text(turnTotal);
+      checkWin();
     }
   });
   $("#holdButton").click(function(){
     event.preventDefault();
     if (turnKeeper%2==0){
-      player2bank=turnTotal;
+      player2bank=player2bank+turnTotal;
       $("#player2ScoreCard").text(player2bank);
     }
     else{
-      player1bank=turnTotal;
+      player1bank=player1bank+turnTotal;
       $("#player1ScoreCard").text(player1bank);
     }
     turnEnd();

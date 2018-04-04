@@ -65,14 +65,14 @@ function checkWin(){
 function startGame(){
   $("#namePage").hide();
   $("#playStart").toggle();
+  $("#player1Notice").prepend(player1.name);
+  $("#player2Notice").prepend(player2.name);
 }
 
 $(document).ready(function() {
   $("#submitNameButton").click(function(){
     player1.name=$("#nameBox1").val();
     player2.name=$("#nameBox2").val();
-
-
     startGame();
   });
 

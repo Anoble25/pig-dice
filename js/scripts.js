@@ -1,5 +1,8 @@
 var turnScores=[];
-
+var player1bank;
+var player2bank;
+var turnTotal;
+var turnKeeper=1;
 
 function roll(){
   return Math.floor(Math.random()*6) + 1;
@@ -13,31 +16,49 @@ function updateTurnTotal(){
   return tempTotal;
 }
 
-$(document).ready(function() {
-  // $("#rollButton").submit(function(event) {
-  //   event.preventDefault();
-  //   console.log(roll());
-  //   alert("submit works");
-  // });
+function turnEnd(){
+  turnTotal=0;
+  temp=0;
+  turnScores=[];
+  $("#rollTotal").text("");
+  $("#rollList").text("");
+  $("#player1Notice").toggle();
+  $("#player2Notice").toggle();
+  turnKeeper++;
+}
 
+
+$(document).ready(function() {
   $("#rollButton").click(function(){
-    console.log("roll works");
     event.preventDefault();
     var temp=roll();
     $("#rollList").append("<li>" + temp+"</li>");
-    console.log(temp);
-    turnScores.push(temp);
-    $("#rollList").text(updateTurnTotal());
+
+    if (parseInt(temp)===1){
+      alert("1 was rolled, no score");
+      turnEnd();
+    }
+
+    else{
+      console.log(temp);
+      turnScores.push(temp);
+      turnTotal=updateTurnTotal();
+      $("#rollTotal").text(turnTotal);
+    }
+  });
+  $("#holdButton").click(function(){
+    event.preventDefault();
+    if (turnKeeper%2==0){
+      player2bank=turnTotal;
+      $("#player2ScoreCard").text(player2bank);
+    }
+    else{
+      player1bank=turnTotal;
+      $("#player1ScoreCard").text(player1bank);
+    }
+    turnEnd();
   });
 
 
-});
 
-// This works
-// $(document).ready(function() {
-//   $("form#playForm").submit(function(event) {
-//     event.preventDefault();
-//     var temp=roll();
-//     console.log(temp);
-//   });
-// });
+});

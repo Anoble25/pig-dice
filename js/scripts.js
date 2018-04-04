@@ -4,10 +4,18 @@ var player2bank=0;
 var turnTotal;
 var turnKeeper=1;
 
-
 function newGame(){
   $("#player2ScoreCard").text("");
   $("#player1ScoreCard").text("");
+  turnTotal=0;
+  temp=0;
+  turnScores=[];
+  player1bank=0;
+  player2bank=0;
+  $("#rollTotal").text("");
+  $("#rollList").text("");
+  $("#player1Notice").show();
+  $("#player2Notice").hide();
 }
 function roll(){
   return Math.floor(Math.random()*6) + 1;
@@ -60,6 +68,7 @@ $(document).ready(function() {
       checkWin();
     }
   });
+
   $("#holdButton").click(function(){
     event.preventDefault();
     if (turnKeeper%2==0){
@@ -71,6 +80,11 @@ $(document).ready(function() {
       $("#player1ScoreCard").text(player1bank);
     }
     turnEnd();
+  });
+
+  $("#newGame").click(function(){
+    event.preventDefault();
+    newGame();
   });
 
 

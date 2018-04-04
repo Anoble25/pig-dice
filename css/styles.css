@@ -27,6 +27,25 @@ body{
   text: #DCE0D9;
   background-color: #EA9010;
 }
+
+#submitNameButton{
+  text: #DCE0D9;
+  background-color: #EA9010;
+}
+
+input#nameBox1{
+  color: white;
+  background-color: black;
+}
+
+input#nameBox2{
+  color: white;
+  background-color: black;
+}
+
+#playStart{
+  display:none;
+}
 .panel-header{
   text: #DCE0D9;
   background-color: #6B0F1A;

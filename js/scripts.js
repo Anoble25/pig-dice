@@ -62,7 +62,20 @@ function checkWin(){
   else{}
 }
 
+function startGame(){
+  $("#namePage").hide();
+  $("#playStart").toggle();
+}
+
 $(document).ready(function() {
+  $("#submitNameButton").click(function(){
+    player1.name=$("#nameBox1").val();
+    player2.name=$("#nameBox2").val();
+
+
+    startGame();
+  });
+
   $("#rollButton").click(function(){
     event.preventDefault();
     var temp=dice.roll();

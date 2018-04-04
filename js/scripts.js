@@ -18,8 +18,20 @@ function newGame(){
   $("#player2Notice").hide();
 }
 function roll(){
-  return Math.floor(Math.random()*6) + 1;
+  return Math.ceil(Math.random()*6);
 }
+
+function testRandom()
+{
+  var arr = [0,0,0,0,0,0];
+  for (var i = 0; i < 1000; i++) {
+    var result = roll();
+    arr[result-1] += 1;
+  }
+  return arr;
+}
+
+console.log(testRandom());
 
 function updateTurnTotal(){
   var tempTotal=0;
@@ -54,11 +66,11 @@ $(document).ready(function() {
   $("#rollButton").click(function(){
     event.preventDefault();
     var temp=roll();
-    $("#rollList").append("<li>" + temp+"</li>");
+    $("#rollList").text("Last Roll: " + temp);
 
     if (parseInt(temp)===1){
-      alert("1 was rolled, no score");
       turnEnd();
+      $("#rollList").text("one was rolled, no score");
     }
 
     else{

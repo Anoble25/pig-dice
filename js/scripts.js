@@ -5,14 +5,14 @@ var turnTotal;
 var turnKeeper=1;
 
 function newGame(){
-  $("#player2ScoreCard").text("");
-  $("#player1ScoreCard").text("");
+  $("#player2ScoreCard").text("0");
+  $("#player1ScoreCard").text("0");
   turnTotal=0;
   temp=0;
   turnScores=[];
   player1bank=0;
   player2bank=0;
-  $("#rollTotal").text("");
+  $("#rollTotal").text("0");
   $("#rollList").text("");
   $("#player1Notice").show();
   $("#player2Notice").hide();

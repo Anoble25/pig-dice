@@ -1,3 +1,50 @@
 #player2Notice{
   display:none;
 }
+
+img{
+  width: 30%;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+body{
+  color: #DCE0D9;
+  background-color: #6B0F1A;
+}
+
+#holdButton{
+  text: #DCE0D9;
+  background-color: #31081F;
+}
+#rollButton{
+  text: #DCE0D9;
+  background-color: #808F85;
+}
+#newGame{
+  text: #DCE0D9;
+  background-color: #EA9010;
+}
+.panel-header{
+  text: #DCE0D9;
+  background-color: #6B0F1A;
+  text-align: center;
+}
+.panel-body{
+  text: #DCE0D9;
+  background-color: #6B0F1A;
+  text-align: center;
+}
+.panel-footer{
+  text: #DCE0D9;
+  background-color: #6B0F1A;
+  text-align: center;
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:50%;    //Specify your width here
+}

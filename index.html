@@ -9,31 +9,43 @@
     <script src="js/scripts.js"></script>
   </head>
   <body>
-    <h1>Pig Dice (first to 100 wins)</h1>
+
+    <img src="img/pig.jpg" alt="photo of a pig">
+    <h1><center>Pig Dice</center></h1>
+    <h3><em><center>First to 100 wins!</center></em></h3>
 
     <form id="playForm">
         <div class="row">
-          <div class="col-md-6">
-            <h2 id="player1Notice">Player 1 Turn</h2>
-            <h2 id="player2Notice">Player 2 Turn</h2>
-            <button id="rollButton" type="submit" class = "btn-btn-warning" name="button">Roll</button>
+          <div class="col-md-3 panel">
+            <div class="panel-header">
+              <h2 id="player1Notice">Player 1 Turn</h2>
+              <h2 id="player2Notice">Player 2 Turn</h2>
+            </div>
+            <div class="panel-body">
+              <button id="rollButton" type="submit" class = "btn-xl" name="button">Roll</button>
 
-            <button id="holdButton" type="submit" class = "btn-btn-warning" name="button">Hold</button>
-            <h2>Roll Total</h2>
-            <h2 id="rollTotal"></h2>
-            <ol id="rollList">
+              <button id="holdButton" type="submit" class = "btn-xl" name="button">Hold</button>
+              <h2>Roll Total</h2>
+              <h2 id="rollTotal"></h2>
+              <ol id="rollList">
 
-            </ol>
+              </ol>
+            </div>
           </div>
 
-          <div class="col-md-6">
-            <h2>Score Board</h2>
-            <h3>Player 1 Bank</h3>
-            <h2 id="player1ScoreCard"></h2>
-            <h3>Player 2 Bank</h3>
-            <h2 id="player2ScoreCard"></h2>
-
-            <button id="newGame" class = "btn-btn-warning" name="button">New Game</button>
+          <div class="col-md-3 panel">
+            <div class="panel-header">
+              <h2>Score Board</h2>
+            </div>
+            <div class="panel-body">
+              <h3>Player 1 Bank</h3>
+              <h2 id="player1ScoreCard"></h2>
+              <h3>Player 2 Bank</h3>
+              <h2 id="player2ScoreCard"></h2>
+            </div>
+            <div class="panel-footer">
+              <button id="newGame" class = "btn-xl" name="button">New Game</button>
+            </div>
           </div>
         </div>
 
